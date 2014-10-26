@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71DBB24A81E905930A59CD9C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C580ECE89C6BAC4BA6BE95 /* libPods.a */; };
 		7BF0412119F9A22D00624B5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0412019F9A22D00624B5A /* main.m */; };
 		7BF0412419F9A22D00624B5A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0412319F9A22D00624B5A /* AppDelegate.m */; };
-		7BF0412719F9A22D00624B5A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0412619F9A22D00624B5A /* ViewController.m */; };
 		7BF0412A19F9A22D00624B5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BF0412819F9A22D00624B5A /* Main.storyboard */; };
 		7BF0412C19F9A22D00624B5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BF0412B19F9A22D00624B5A /* Images.xcassets */; };
 		7BF0412F19F9A22D00624B5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BF0412D19F9A22D00624B5A /* LaunchScreen.xib */; };
 		7BF0413B19F9A22D00624B5A /* StadiumParkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0413A19F9A22D00624B5A /* StadiumParkTests.m */; };
+		7BF0414619F9A4E500624B5A /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0414519F9A4E500624B5A /* PaymentViewController.m */; };
+		7BF0415519F9BD4B00624B5A /* StadiumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0415419F9BD4B00624B5A /* StadiumsViewController.m */; };
+		7BF0415819F9C24F00624B5A /* StadiumDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0415719F9C24E00624B5A /* StadiumDetailsViewController.m */; };
+		7BF0415B19F9E94A00624B5A /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0415A19F9E94900624B5A /* QRCodeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +31,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E4FE8D7B86E8070BD3B60C7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		219FDE226D0F5777E903F5F7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7BF0411B19F9A22D00624B5A /* StadiumPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StadiumPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF0411F19F9A22D00624B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BF0412019F9A22D00624B5A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7BF0412219F9A22D00624B5A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7BF0412319F9A22D00624B5A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7BF0412519F9A22D00624B5A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7BF0412619F9A22D00624B5A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7BF0412919F9A22D00624B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BF0412B19F9A22D00624B5A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7BF0412E19F9A22D00624B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7BF0413419F9A22D00624B5A /* StadiumParkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StadiumParkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF0413919F9A22D00624B5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BF0413A19F9A22D00624B5A /* StadiumParkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StadiumParkTests.m; sourceTree = "<group>"; };
+		7BF0414419F9A4E500624B5A /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		7BF0414519F9A4E500624B5A /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
+		7BF0415319F9BD4B00624B5A /* StadiumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StadiumsViewController.h; sourceTree = "<group>"; };
+		7BF0415419F9BD4B00624B5A /* StadiumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadiumsViewController.m; sourceTree = "<group>"; };
+		7BF0415619F9C24E00624B5A /* StadiumDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StadiumDetailsViewController.h; sourceTree = "<group>"; };
+		7BF0415719F9C24E00624B5A /* StadiumDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadiumDetailsViewController.m; sourceTree = "<group>"; };
+		7BF0415919F9E94900624B5A /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		7BF0415A19F9E94900624B5A /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		A4C580ECE89C6BAC4BA6BE95 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71DBB24A81E905930A59CD9C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +74,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47940F4E232C57BB8CA1D943 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4C580ECE89C6BAC4BA6BE95 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6D63BCBFE9130FF699C8AE5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E4FE8D7B86E8070BD3B60C7 /* Pods.debug.xcconfig */,
+				219FDE226D0F5777E903F5F7 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7BF0411219F9A22D00624B5A = {
 			isa = PBXGroup;
 			children = (
 				7BF0411D19F9A22D00624B5A /* StadiumPark */,
 				7BF0413719F9A22D00624B5A /* StadiumParkTests */,
 				7BF0411C19F9A22D00624B5A /* Products */,
+				6D63BCBFE9130FF699C8AE5F /* Pods */,
+				47940F4E232C57BB8CA1D943 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,8 +116,14 @@
 			children = (
 				7BF0412219F9A22D00624B5A /* AppDelegate.h */,
 				7BF0412319F9A22D00624B5A /* AppDelegate.m */,
-				7BF0412519F9A22D00624B5A /* ViewController.h */,
-				7BF0412619F9A22D00624B5A /* ViewController.m */,
+				7BF0414419F9A4E500624B5A /* PaymentViewController.h */,
+				7BF0414519F9A4E500624B5A /* PaymentViewController.m */,
+				7BF0415319F9BD4B00624B5A /* StadiumsViewController.h */,
+				7BF0415419F9BD4B00624B5A /* StadiumsViewController.m */,
+				7BF0415619F9C24E00624B5A /* StadiumDetailsViewController.h */,
+				7BF0415719F9C24E00624B5A /* StadiumDetailsViewController.m */,
+				7BF0415919F9E94900624B5A /* QRCodeViewController.h */,
+				7BF0415A19F9E94900624B5A /* QRCodeViewController.m */,
 				7BF0412819F9A22D00624B5A /* Main.storyboard */,
 				7BF0412B19F9A22D00624B5A /* Images.xcassets */,
 				7BF0412D19F9A22D00624B5A /* LaunchScreen.xib */,
@@ -126,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7BF0413E19F9A22D00624B5A /* Build configuration list for PBXNativeTarget "StadiumPark" */;
 			buildPhases = (
+				D61F796FF323A1218C5B0C88 /* Check Pods Manifest.lock */,
 				7BF0411719F9A22D00624B5A /* Sources */,
 				7BF0411819F9A22D00624B5A /* Frameworks */,
 				7BF0411919F9A22D00624B5A /* Resources */,
+				85EAA5358839F94D92408C8A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,14 +255,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		85EAA5358839F94D92408C8A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D61F796FF323A1218C5B0C88 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7BF0411719F9A22D00624B5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BF0412719F9A22D00624B5A /* ViewController.m in Sources */,
+				7BF0415519F9BD4B00624B5A /* StadiumsViewController.m in Sources */,
 				7BF0412419F9A22D00624B5A /* AppDelegate.m in Sources */,
+				7BF0415B19F9E94A00624B5A /* QRCodeViewController.m in Sources */,
+				7BF0415819F9C24F00624B5A /* StadiumDetailsViewController.m in Sources */,
 				7BF0412119F9A22D00624B5A /* main.m in Sources */,
+				7BF0414619F9A4E500624B5A /* PaymentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,9 +420,11 @@
 		};
 		7BF0413F19F9A22D00624B5A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E4FE8D7B86E8070BD3B60C7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StadiumPark/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,9 +432,11 @@
 		};
 		7BF0414019F9A22D00624B5A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 219FDE226D0F5777E903F5F7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StadiumPark/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -414,6 +495,7 @@
 				7BF0414019F9A22D00624B5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7BF0414119F9A22D00624B5A /* Build configuration list for PBXNativeTarget "StadiumParkTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +504,7 @@
 				7BF0414319F9A22D00624B5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

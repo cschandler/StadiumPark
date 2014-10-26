@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Braintree/Braintree.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [Braintree setReturnURLScheme:@"Flow-Enterprises--LLC.StadiumPark.payment"];
     return YES;
 }
 
@@ -40,6 +42,13 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    return [Braintree handleOpenURL:url sourceApplication:sourceApplication];
+    
 }
 
 @end
