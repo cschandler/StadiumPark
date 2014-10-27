@@ -12,9 +12,7 @@
 
 // received variables from StadiumsViewController
 @property NSString *stadiumName;
-@property UIImageView *logo;
-@property NSString *price;
-@property NSString *qrCode;
+@property int stadiumId;
 // from interface builder
 @property (weak, nonatomic) IBOutlet UITextField *instructions1;
 @property (weak, nonatomic) IBOutlet UITextField *instructions2;

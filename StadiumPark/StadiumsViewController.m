@@ -8,6 +8,7 @@
 
 #import "StadiumsViewController.h"
 #import "StadiumDetailsViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface StadiumsViewController ()
 
@@ -22,22 +23,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    [manager GET:@"http://54.69.129.75/braintree_server/laravel/public/index.php/stadiums"
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             //store resulting token to user's settings
+             NSLog(@"stadium response: %@", operation.responseString);
+             self.stadiums = [[NSArray alloc] initWithArray:responseObject];
+             [self.stadiumsPicker reloadAllComponents];
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             // Handle failure communicating with your server
+             NSLog(@"stadium response error: %@", error.description);
+         }];
     
-    NSDictionary *stadium1 = @{
-                     @"stadium": @"sample stadium 1",
-                     @"logo": @"",
-                     @"price": @"$25.00",
-                     @"qr code": @"1001012023034",
-    };
     
-    NSDictionary *stadium2 = @{
-                    @"stadium":@"sample stadium 2",
-                    @"logo":@"",
-                    @"price":@"$40.00",
-                    @"qr code":@"1001012023034",
-    };
-    
-    self.stadiums = [[NSArray alloc] initWithObjects:stadium1, stadium2, nil];
     
 }
 
@@ -57,7 +58,7 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSString *rowString = [NSString stringWithFormat:@"%@", [[self.stadiums objectAtIndex:row] objectForKey:@"stadium"]];
+    NSString *rowString = [NSString stringWithFormat:@"%@", [[self.stadiums objectAtIndex:row] objectForKey:@"name"]];
     return rowString;
 }
 
@@ -70,10 +71,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     StadiumDetailsViewController *controller = segue.destinationViewController;
-    controller.stadiumName = [self.currentStadium objectForKey:@"stadium"];
-    controller.logo = [self.currentStadium objectForKey:@"logo"];
-    controller.price = [self.currentStadium objectForKey:@"price"];
-    controller.qrCode = [self.currentStadium objectForKey:@"qr code"];
+    controller.stadiumName = [self.currentStadium objectForKey:@"name"];
+    controller.stadiumId = [self.currentStadium objectForKey:@"id"];
 }
 
 @end

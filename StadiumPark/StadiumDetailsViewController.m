@@ -46,7 +46,7 @@
         
         self.clickToPayButton.hidden = NO;
     }
-
+    NSLog(@"stadiumId: %@", self.stadiumId);
 }
 
 #pragma mark - IBAction methods

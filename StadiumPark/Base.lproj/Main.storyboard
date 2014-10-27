@@ -9,7 +9,7 @@
         <!--Payment View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PaymentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PaymentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -41,6 +41,9 @@
                             <constraint firstItem="fwE-iB-CwF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CeY-V9-ILw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="FI4-SA-L7v" kind="showDetail" identifier="segueToStadiums" id="hGn-0P-0cr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,7 +51,7 @@
         <!--Stadiums-->
         <scene sceneID="FQu-xf-xAy">
             <objects>
-                <viewController id="AqN-1L-RMf" customClass="StadiumsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StadiumsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AqN-1L-RMf" customClass="StadiumsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bOb-f9-LtL"/>
                         <viewControllerLayoutGuide type="bottom" id="ZnV-81-Qch"/>
@@ -273,7 +276,7 @@
         <!--Navigation Controller-->
         <scene sceneID="WFx-H5-60m">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FI4-SA-L7v" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="StadiumNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FI4-SA-L7v" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a06-8R-RH6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -286,7 +289,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOp-cK-aPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="844"/>
+            <point key="canvasLocation" x="140" y="844"/>
         </scene>
     </scenes>
 </document>

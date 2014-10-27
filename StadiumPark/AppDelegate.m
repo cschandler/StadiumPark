@@ -17,8 +17,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Required for braintree infrastructure
     [Braintree setReturnURLScheme:@"Flow-Enterprises--LLC.StadiumPark.payment"];
+    
+    // Determine initial ViewController based on whether customer information preexists
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *customer = [defaults objectForKey:@"customer"];
+    NSLog(@"customer in app delegate: %@", customer);
+    
+    // success will be changed later to more specific info when we get token working
+    Boolean customerExists = [customer[@"success"] boolValue];
+    NSString *viewControllerId  = (customerExists)? @"StadiumNavigationController" : @"PaymentViewController";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *initialViewController = [storyboard instantiateViewControllerWithIdentifier:viewControllerId];
+    self.window.rootViewController = initialViewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

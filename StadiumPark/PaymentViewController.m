@@ -9,6 +9,7 @@
 #import "PaymentViewController.h"
 #import <Braintree/Braintree.h>
 #import <AFNetworking/AFNetworking.h>
+#import "StadiumsViewController.h"
 
 @interface PaymentViewController ()
 
@@ -83,20 +84,27 @@
              //store resulting token to user's settings
              NSLog(@"response object: %@", operation.responseString);
              
+             // Save the customer information
+             // parse out the seperate customer information fields
+             NSDictionary *result = responseObject[@"result"];
+             
+             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+             [defaults setObject:result forKey:@"customer"];
+             
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              // Handle failure communicating with your server
              NSLog(@"%@\n\n%@",error.description, error.debugDescription);
          }];
+    
+    [self performSegueWithIdentifier:@"segueToStadiums" sender:self];
 }
 
-/*
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+
  }
- */
+
 @end
