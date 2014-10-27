@@ -75,21 +75,5 @@
     controller.price = [self.currentStadium objectForKey:@"price"];
     controller.qrCode = [self.currentStadium objectForKey:@"qr code"];
 }
-/*
-#pragma mark - Private instance methods
-- (CIImage *)createQRForString:(NSString *)qrString
-{
-    // Need to convert the string to a UTF-8 encoded NSData object
-    NSData *stringData = [qrString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    // Create the filter
-    CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    // Set the message content and error-correction level
-    [qrFilter setValue:stringData forKey:@"inputMessage"];
-    [qrFilter setValue:@"M" forKey:@"inputCorrectionLevel"];
-    
-    // Send the image back
-    return qrFilter.outputImage;
-}
-*/
+
 @end

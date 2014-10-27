@@ -14,5 +14,6 @@
 - (IBAction)paymentButton:(UIButton *)sender;
 
 - (void)userDidCancelPayment;
+- (void)createCustomer:(NSString *)nonce;
 
 @end

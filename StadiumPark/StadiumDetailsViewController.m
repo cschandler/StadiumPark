@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.alreadyPurchased = false;
+    self.alreadyPurchased = true;
     
     // setup view
     self.stadiumNameLabel.text = self.stadiumName;
