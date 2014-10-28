@@ -12,6 +12,4 @@
 
 @property NSString *qrCode;
 
-@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImage;
-
 @end

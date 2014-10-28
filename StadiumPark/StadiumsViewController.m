@@ -28,18 +28,18 @@
     [manager GET:@"http://54.69.129.75/braintree_server/laravel/public/index.php/stadiums"
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             //store resulting token to user's settings
              NSLog(@"stadium response: %@", operation.responseString);
              self.stadiums = [[NSArray alloc] initWithArray:responseObject];
              [self.stadiumsPicker reloadAllComponents];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-             // Handle failure communicating with your server
              NSLog(@"stadium response error: %@", error.description);
          }];
     
-    
-    
+    // for pickerview tap recognition
+    UITapGestureRecognizer* gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickerViewTapGestureRecognized:)];
+    [self.stadiumsPicker addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +72,21 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     StadiumDetailsViewController *controller = segue.destinationViewController;
     controller.stadiumName = [self.currentStadium objectForKey:@"name"];
-    controller.stadiumId = [self.currentStadium objectForKey:@"id"];
+    controller.stadiumId = [self.currentStadium objectForKey:@"stadium_id"];
 }
+
+#pragma mark - Gesture recogniztion methods
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    // return
+    return true;
+}
+
+- (void)pickerViewTapGestureRecognized:(id)sender
+{
+    self.currentStadium = self.stadiums[[self.stadiumsPicker selectedRowInComponent:0]];
+    [self performSegueWithIdentifier:@"segueToStadiumDetails" sender:self];
+}
+
 
 @end

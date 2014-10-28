@@ -12,7 +12,7 @@
 
 // received variables from StadiumsViewController
 @property NSString *stadiumName;
-@property int stadiumId;
+@property NSString *stadiumId;
 // from interface builder
 @property (weak, nonatomic) IBOutlet UITextField *instructions1;
 @property (weak, nonatomic) IBOutlet UITextField *instructions2;
@@ -21,9 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *stadiumNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *stadiumLogoImageView;
 @property (weak, nonatomic) IBOutlet UITextView *priceInfoTextView;
-@property (weak, nonatomic) IBOutlet UIButton *clickToPayButton;
 // IBActions
 - (IBAction)showQRCode:(UIButton *)sender;
-- (IBAction)clickToPay:(UIButton *)sender;
 
 @end

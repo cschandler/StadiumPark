@@ -11,6 +11,8 @@
 
 @interface PaymentViewController : UIViewController <BTDropInViewControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *paymentButton;
+
 - (IBAction)paymentButton:(UIButton *)sender;
 
 - (void)userDidCancelPayment;

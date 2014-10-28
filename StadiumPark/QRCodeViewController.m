@@ -16,7 +16,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    // prep qr text string
+    NSString *qrPrefix = @"data:image/png;base64,";
+    NSString *fullQRString = [qrPrefix stringByAppendingString:self.qrCode];
+    NSURL *url = [NSURL URLWithString:fullQRString];
+    
+    // create UIImageView
+    NSData *imageData = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:imageData];
+    CGFloat width = self.view.bounds.size.width;
+    CGFloat positionY = self.navigationController.navigationBar.frame.size.height + 16.0;
+    UIImageView *imageView = [[UIImageView alloc]
+                initWithFrame:CGRectMake(0.0, positionY, width, width)];
+    imageView.image = image;
+    [self.view addSubview:imageView];
 }
 
 - (void)didReceiveMemoryWarning {

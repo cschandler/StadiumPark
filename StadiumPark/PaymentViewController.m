@@ -32,6 +32,7 @@
               //store resulting token to user's settings
               NSLog(@"clientToken response: %@", responseObject[@"result"]);
               self.clientToken = responseObject[@"result"];
+              [self.paymentButton sendActionsForControlEvents:UIControlEventTouchUpInside];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               // Handle failure communicating with your server
@@ -69,6 +70,7 @@
     self.nonce = paymentMethod.nonce;
     [self createCustomer:self.nonce]; // Send payment method nonce to your server
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"segueToStadiums" sender:self];
 }
 
 - (void)dropInViewControllerDidCancel:(__unused BTDropInViewController *)viewController {
@@ -86,25 +88,26 @@
              
              // Save the customer information
              // parse out the seperate customer information fields
+             NSString *tokenString = @"";
+
              NSDictionary *result = responseObject[@"result"];
-             
+             NSDictionary *customer = result[@"customer"];
+             NSDictionary *creditCards = customer[@"creditCards"];
+             tokenString = [NSString stringWithFormat:@"%@", creditCards[@"token"]];
+            
+             if ([tokenString  isEqual: @"(null)"]) {
+                 tokenString = [NSString stringWithFormat:@"teststring12345"];
+             }
+
              NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-             [defaults setObject:result forKey:@"customer"];
+             [defaults setObject:tokenString forKey:@"token"];
+             NSLog(@"tokenString upon entering user defaults: %@", tokenString);
              
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              // Handle failure communicating with your server
              NSLog(@"%@\n\n%@",error.description, error.debugDescription);
          }];
-    
-    [self performSegueWithIdentifier:@"segueToStadiums" sender:self];
 }
-
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
- }
 
 @end

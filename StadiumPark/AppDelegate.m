@@ -22,11 +22,10 @@
     
     // Determine initial ViewController based on whether customer information preexists
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *customer = [defaults objectForKey:@"customer"];
-    NSLog(@"customer in app delegate: %@", customer);
+    NSString *token = [defaults objectForKey:@"token"];
     
     // success will be changed later to more specific info when we get token working
-    Boolean customerExists = [customer[@"success"] boolValue];
+    Boolean customerExists = [token boolValue];
     NSString *viewControllerId  = (customerExists)? @"StadiumNavigationController" : @"PaymentViewController";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *initialViewController = [storyboard instantiateViewControllerWithIdentifier:viewControllerId];

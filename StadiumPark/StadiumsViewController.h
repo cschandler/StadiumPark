@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StadiumsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface StadiumsViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *stadiumsPicker;
+
+- (void)pickerViewTapGestureRecognized:(id)sender;
 
 @end

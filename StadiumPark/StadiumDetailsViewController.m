@@ -8,11 +8,13 @@
 
 #import "StadiumDetailsViewController.h"
 #import "QRCodeViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface StadiumDetailsViewController ()
 
-// private instance variables
-@property Boolean alreadyPurchased;
+@property NSDictionary *stadiumDetails;
+
+-(void)setPriceInfo;
 
 @end
 
@@ -20,33 +22,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    self.alreadyPurchased = true;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    [manager POST:@"http://54.69.129.75/braintree_server/laravel/public/index.php/stadium_details"
+       parameters:@{ @"id":self.stadiumId, @"token":[defaults objectForKey:@"token"]}
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"stadium_details response: %@", responseObject[0]);
+             self.stadiumDetails = [[NSDictionary alloc] initWithDictionary:responseObject[0]];
+             NSLog(@"amount: %@", [self.stadiumDetails[@"stadium"] objectForKey:@"amount"]);
+             NSLog(@"qr: %@", [self.stadiumDetails objectForKey:@"qr"]);
+             
+             [self setPriceInfo];
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"stadium_details response error: %@", error.description);
+         }];
     
     // setup view
     self.stadiumNameLabel.text = self.stadiumName;
-    self.priceInfoTextView.text = [NSString stringWithFormat:@"%@\n%@", self.priceInfoTextView.text, self.price];
-    [self.priceInfoTextView setFont:[UIFont fontWithName:@"Apple SD Gothic Neo" size:34]];
-    [self.priceInfoTextView setTextColor:[UIColor whiteColor]];
-    [self.priceInfoTextView setTextAlignment:NSTextAlignmentCenter];
-    
-    if (self.alreadyPurchased) {
-        self.instructions1.hidden = NO;
-        self.instructions2.hidden = NO;
-        self.instructions3.hidden = NO;
-        self.showQRCodeButton.hidden = NO;
-        
-        self.clickToPayButton.hidden = YES;
-        
-    } else {
-        self.instructions1.hidden = YES;
-        self.instructions2.hidden = YES;
-        self.instructions3.hidden = YES;
-        self.showQRCodeButton.hidden = YES;
-        
-        self.clickToPayButton.hidden = NO;
-    }
-    NSLog(@"stadiumId: %@", self.stadiumId);
 }
 
 #pragma mark - IBAction methods
@@ -55,16 +50,22 @@
     [self performSegueWithIdentifier:@"segueToQRCode" sender:self];
 }
 
-- (IBAction)clickToPay:(UIButton *)sender {
-    
-}
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     QRCodeViewController *controller = segue.destinationViewController;
-    controller.qrCode = self.qrCode;
+    controller.qrCode = [self.stadiumDetails objectForKey:@"qr"];
+}
+
+#pragma mark - Private methods
+- (void)setPriceInfo {
+    self.priceInfoTextView.text = [NSString stringWithFormat:@"%@\n$%@", self.priceInfoTextView.text,
+                                   [self.stadiumDetails[@"stadium"] objectForKey:@"amount"]];
+    [self.priceInfoTextView setFont:[UIFont fontWithName:@"Apple SD Gothic Neo" size:34]];
+    [self.priceInfoTextView setTextColor:[UIColor whiteColor]];
+    [self.priceInfoTextView setTextAlignment:NSTextAlignmentCenter];
+    [self.view setNeedsDisplay];
 }
 
 @end

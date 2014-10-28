@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwE-iB-CwF">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwE-iB-CwF">
                                 <rect key="frame" x="16" y="20" width="568" height="141"/>
                                 <color key="backgroundColor" red="0.45434906031498884" green="0.71528957201086962" blue="0.17654233092346416" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -42,13 +42,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="FI4-SA-L7v" kind="showDetail" identifier="segueToStadiums" id="hGn-0P-0cr"/>
+                        <outlet property="paymentButton" destination="fwE-iB-CwF" id="K1h-wY-dCt"/>
+                        <segue destination="AqN-1L-RMf" kind="presentation" identifier="segueToStadiums" id="cMJ-iH-xAP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Stadiums-->
+        <!--Stadium Park-->
         <scene sceneID="FQu-xf-xAy">
             <objects>
                 <viewController storyboardIdentifier="StadiumsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AqN-1L-RMf" customClass="StadiumsViewController" sceneMemberID="viewController">
@@ -75,7 +76,7 @@
                             <constraint firstItem="z6g-2U-Jmb" firstAttribute="leading" secondItem="MKx-ae-BAL" secondAttribute="leadingMargin" id="rYe-2m-vbG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Stadiums" id="1LR-op-9n0"/>
+                    <navigationItem key="navigationItem" title="Stadium Park" id="1LR-op-9n0"/>
                     <connections>
                         <outlet property="stadiumsPicker" destination="z6g-2U-Jmb" id="6v0-9S-BL6"/>
                         <segue destination="JfM-mj-Ngv" kind="show" identifier="segueToStadiumDetails" id="qji-Id-ViS"/>
@@ -133,10 +134,13 @@
                                     <outlet property="delegate" destination="JfM-mj-Ngv" id="xby-b6-tJi"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8Y-KG-Mc6">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8Y-KG-Mc6">
                                 <rect key="frame" x="16" y="432" width="568" height="48"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
-                                <state key="normal" title="SHOW QR CODE">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="IK5-Ga-uog"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
+                                <state key="normal" title="CLICK TO SHOW QR CODE">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -167,21 +171,6 @@
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFh-hl-Uct">
-                                <rect key="frame" x="0.0" y="318" width="600" height="68"/>
-                                <color key="backgroundColor" red="0.64083343020000005" green="1" blue="0.25707397990000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="k0R-0e-Yvn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="50"/>
-                                <state key="normal" title="Click to Pay">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickToPay:" destination="JfM-mj-Ngv" eventType="touchUpInside" id="zHM-AO-kSn"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -190,7 +179,6 @@
                             <constraint firstItem="PmO-Kb-yMu" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" id="AoV-5s-qmi"/>
                             <constraint firstItem="bhF-PW-39c" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="F4G-n1-qY2"/>
                             <constraint firstItem="AEY-rc-5rk" firstAttribute="top" secondItem="Ryi-VL-Yxz" secondAttribute="bottom" constant="8" id="FUs-JQ-tdu"/>
-                            <constraint firstItem="qFh-hl-Uct" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" constant="-16" id="KWV-NP-5b4"/>
                             <constraint firstItem="Ryi-VL-Yxz" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="Mej-Tp-qxf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AEY-rc-5rk" secondAttribute="trailing" constant="-16" id="PJp-AU-lqX"/>
                             <constraint firstItem="e8Y-KG-Mc6" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" id="Pzq-gl-qhg"/>
@@ -209,8 +197,6 @@
                             <constraint firstItem="YpD-we-2sB" firstAttribute="top" secondItem="4bk-Xj-4e4" secondAttribute="bottom" constant="8" id="r5I-wt-fYO"/>
                             <constraint firstItem="PmO-Kb-yMu" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="reN-Ql-xoA"/>
                             <constraint firstItem="Ryi-VL-Yxz" firstAttribute="top" secondItem="YpD-we-2sB" secondAttribute="bottom" id="sdL-yf-eMc"/>
-                            <constraint firstItem="qFh-hl-Uct" firstAttribute="top" secondItem="AEY-rc-5rk" secondAttribute="bottom" constant="8" id="uHp-dx-lQk"/>
-                            <constraint firstItem="qFh-hl-Uct" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" constant="16" id="ud4-u1-5KG"/>
                             <constraint firstItem="YpD-we-2sB" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="wKp-08-XVH"/>
                         </constraints>
                         <variation key="default">
@@ -220,7 +206,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="clickToPayButton" destination="qFh-hl-Uct" id="68m-sr-5Wn"/>
                         <outlet property="instructions1" destination="5CS-vM-jWT" id="aLa-D9-9ma"/>
                         <outlet property="instructions2" destination="PmO-Kb-yMu" id="ruU-uc-LSZ"/>
                         <outlet property="instructions3" destination="bhF-PW-39c" id="sJ8-en-hfa"/>
@@ -246,32 +231,12 @@
                     <view key="view" contentMode="scaleToFill" id="eQ3-O8-RrI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OhB-uK-mgY">
-                                <rect key="frame" x="16" y="72" width="568" height="539"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="OhB-uK-mgY" firstAttribute="top" secondItem="nMK-vh-uLj" secondAttribute="bottom" constant="8" symbolic="YES" id="3ue-TK-SGx"/>
-                            <constraint firstItem="OhB-uK-mgY" firstAttribute="leading" secondItem="eQ3-O8-RrI" secondAttribute="leadingMargin" id="NiR-Oi-AzN"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="OhB-uK-mgY" secondAttribute="bottom" constant="-11" id="fHL-at-6ca"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="OhB-uK-mgY" secondAttribute="bottom" constant="-11" id="iQw-2T-vqJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OhB-uK-mgY" secondAttribute="trailing" id="ljx-Ul-fhE"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="fHL-at-6ca"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="qrCodeImage" destination="OhB-uK-mgY" id="CFS-4K-v7s"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZRl-5J-HVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2448" y="857"/>
+            <point key="canvasLocation" x="2450" y="844"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WFx-H5-60m">
@@ -292,4 +257,7 @@
             <point key="canvasLocation" x="140" y="844"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7Px-D2-VRC"/>
+    </inferredMetricsTieBreakers>
 </document>
