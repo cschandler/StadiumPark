@@ -18,27 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwE-iB-CwF">
-                                <rect key="frame" x="16" y="20" width="568" height="141"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="center" fixedFrame="YES" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="Z0h-Kz-Yzl">
+                                <rect key="frame" x="0.0" y="0.0" width="1296" height="1040"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwE-iB-CwF">
+                                <rect key="frame" x="16" y="66" width="568" height="73"/>
                                 <color key="backgroundColor" red="0.45434906031498884" green="0.71528957201086962" blue="0.17654233092346416" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="141" id="5S2-Z1-mXf"/>
+                                    <constraint firstAttribute="height" constant="73" id="5S2-Z1-mXf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="80"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="50"/>
                                 <state key="normal" title="Click to Pay">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="paymentButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="opG-qX-nZs"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Please process payment information" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YGd-Qm-XFa">
+                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oZq-eZ-dKg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fwE-iB-CwF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3Fz-TZ-Tzq"/>
                             <constraint firstItem="fwE-iB-CwF" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5zr-vA-5xs"/>
-                            <constraint firstItem="fwE-iB-CwF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="CeY-V9-ILw"/>
+                            <constraint firstItem="fwE-iB-CwF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="CeY-V9-ILw"/>
+                            <constraint firstItem="YGd-Qm-XFa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="GXl-zp-2rK"/>
+                            <constraint firstItem="fwE-iB-CwF" firstAttribute="top" secondItem="YGd-Qm-XFa" secondAttribute="bottom" constant="8" id="ISy-XD-jct"/>
+                            <constraint firstItem="YGd-Qm-XFa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="qfd-uf-oRo"/>
                         </constraints>
                     </view>
                     <connections>
@@ -61,8 +76,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.49999999999999961" contentMode="center" fixedFrame="YES" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="VAJ-Mr-eTY">
+                                <rect key="frame" x="0.0" y="0.0" width="1296" height="1040"/>
+                            </imageView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6g-2U-Jmb">
                                 <rect key="frame" x="16" y="219" width="568" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="AqN-1L-RMf" id="61v-dZ-ReU"/>
                                     <outlet property="delegate" destination="AqN-1L-RMf" id="Q7E-Du-6SX"/>
@@ -107,12 +127,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ryi-VL-Yxz">
-                                <rect key="frame" x="16" y="112" width="568" height="98"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="98" id="PqL-8v-zCf"/>
-                                </constraints>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" editable="NO" text="Parking Price" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEY-rc-5rk">
                                 <rect key="frame" x="0.0" y="210" width="600" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.14044948369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,6 +185,12 @@
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ryi-VL-Yxz">
+                                <rect key="frame" x="0.0" y="112" width="600" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="PqL-8v-zCf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -179,7 +199,7 @@
                             <constraint firstItem="PmO-Kb-yMu" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" id="AoV-5s-qmi"/>
                             <constraint firstItem="bhF-PW-39c" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="F4G-n1-qY2"/>
                             <constraint firstItem="AEY-rc-5rk" firstAttribute="top" secondItem="Ryi-VL-Yxz" secondAttribute="bottom" constant="8" id="FUs-JQ-tdu"/>
-                            <constraint firstItem="Ryi-VL-Yxz" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="Mej-Tp-qxf"/>
+                            <constraint firstItem="Ryi-VL-Yxz" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" constant="-16" id="Mej-Tp-qxf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AEY-rc-5rk" secondAttribute="trailing" constant="-16" id="PJp-AU-lqX"/>
                             <constraint firstItem="e8Y-KG-Mc6" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" id="Pzq-gl-qhg"/>
                             <constraint firstItem="YpD-we-2sB" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" id="Q0b-Ua-7Oj"/>
@@ -189,12 +209,12 @@
                             <constraint firstItem="5CS-vM-jWT" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" id="YRf-iD-Mqz"/>
                             <constraint firstItem="5CS-vM-jWT" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" id="YZi-Q5-NPe"/>
                             <constraint firstItem="PmO-Kb-yMu" firstAttribute="top" secondItem="5CS-vM-jWT" secondAttribute="bottom" constant="8" id="ggi-K8-jTj"/>
-                            <constraint firstItem="Ryi-VL-Yxz" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" id="h8g-q1-5MN"/>
+                            <constraint firstItem="Ryi-VL-Yxz" firstAttribute="trailing" secondItem="4Q2-WT-6Ba" secondAttribute="trailingMargin" constant="16" id="h8g-q1-5MN"/>
                             <constraint firstItem="5CS-vM-jWT" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="hwD-wB-3gX"/>
                             <constraint firstItem="AEY-rc-5rk" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" constant="-16" id="iBG-HG-agZ"/>
                             <constraint firstItem="e8Y-KG-Mc6" firstAttribute="top" secondItem="bhF-PW-39c" secondAttribute="bottom" constant="8" id="jPY-yd-nr2"/>
                             <constraint firstItem="e8Y-KG-Mc6" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="lST-U1-PEr"/>
-                            <constraint firstItem="YpD-we-2sB" firstAttribute="top" secondItem="4bk-Xj-4e4" secondAttribute="bottom" constant="8" id="r5I-wt-fYO"/>
+                            <constraint firstItem="YpD-we-2sB" firstAttribute="top" secondItem="4bk-Xj-4e4" secondAttribute="bottom" constant="52" id="r5I-wt-fYO"/>
                             <constraint firstItem="PmO-Kb-yMu" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="reN-Ql-xoA"/>
                             <constraint firstItem="Ryi-VL-Yxz" firstAttribute="top" secondItem="YpD-we-2sB" secondAttribute="bottom" id="sdL-yf-eMc"/>
                             <constraint firstItem="YpD-we-2sB" firstAttribute="leading" secondItem="4Q2-WT-6Ba" secondAttribute="leadingMargin" id="wKp-08-XVH"/>
@@ -257,7 +277,10 @@
             <point key="canvasLocation" x="140" y="844"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background2" width="1296" height="1040"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Px-D2-VRC"/>
+        <segue reference="cMJ-iH-xAP"/>
     </inferredMetricsTieBreakers>
 </document>

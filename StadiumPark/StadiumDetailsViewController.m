@@ -15,6 +15,7 @@
 @property NSDictionary *stadiumDetails;
 
 -(void)setPriceInfo;
+-(void)setLogo;
 
 @end
 
@@ -33,7 +34,7 @@
              self.stadiumDetails = [[NSDictionary alloc] initWithDictionary:responseObject[0]];
              NSLog(@"amount: %@", [self.stadiumDetails[@"stadium"] objectForKey:@"amount"]);
              NSLog(@"qr: %@", [self.stadiumDetails objectForKey:@"qr"]);
-             
+             [self setLogo];
              [self setPriceInfo];
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -66,6 +67,17 @@
     [self.priceInfoTextView setTextColor:[UIColor whiteColor]];
     [self.priceInfoTextView setTextAlignment:NSTextAlignmentCenter];
     [self.view setNeedsDisplay];
+}
+
+- (void)setLogo {
+    NSLog(@"logo: %@", [self.stadiumDetails[@"stadium"] objectForKey:@"logo"]);
+    if ([[self.stadiumDetails[@"stadium"] objectForKey:@"logo"]  isEqual: [NSNull null]]) {
+        UIImage *placeholderImage = [UIImage imageNamed:@"background1" inBundle:nil compatibleWithTraitCollection:nil];
+        self.stadiumLogoImageView.image = placeholderImage;
+    } else {
+        UIImage *logo = [UIImage imageWithData:[self.stadiumDetails[@"stadium"] objectForKey:@"logo"]];
+        self.stadiumLogoImageView.image = logo;
+    }
 }
 
 @end
