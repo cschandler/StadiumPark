@@ -9,6 +9,7 @@
 #import "QRCodeViewController.h"
 
 @interface QRCodeViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
 @end
 
@@ -25,10 +26,11 @@
     // create UIImageView
     NSData *imageData = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:imageData];
-    CGFloat width = self.view.bounds.size.width;
+    CGFloat width = 200;//self.view.bounds.size.width;
+    CGFloat positionX = (self.view.bounds.size.width - width) / 2;
     CGFloat positionY = self.navigationController.navigationBar.frame.size.height + 16.0;
     UIImageView *imageView = [[UIImageView alloc]
-                initWithFrame:CGRectMake(0.0, positionY, width, width)];
+                initWithFrame:CGRectMake(positionX, positionY, width, width)];
     imageView.image = image;
     [self.view addSubview:imageView];
 }

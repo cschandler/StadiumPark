@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>15D38B5F-6BA5-406B-BDE8-F5761D814694</string>
+	<key>IDESourceControlProjectName</key>
+	<string>StadiumPark</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E11C7FEC5E69721EA487CE5DBC85484EF72EB324</key>
+		<string>github.com:cschandler/StadiumPark.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>StadiumPark.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E11C7FEC5E69721EA487CE5DBC85484EF72EB324</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:cschandler/StadiumPark.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E11C7FEC5E69721EA487CE5DBC85484EF72EB324</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E11C7FEC5E69721EA487CE5DBC85484EF72EB324</string>
+			<key>IDESourceControlWCCName</key>
+			<string>StadiumPark</string>
+		</dict>
+	</array>
+</dict>
+</plist>

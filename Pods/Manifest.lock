@@ -1,4 +1,7 @@
 PODS:
+  - AFNetworkActivityLogger (2.0.3):
+    - AFNetworking/NSURLConnection (~> 2.0)
+    - AFNetworking/NSURLSession (~> 2.0)
   - AFNetworking (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
@@ -20,38 +23,40 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Braintree (3.4.0-rc3):
+  - Braintree (3.4.0):
     - Braintree/API
     - Braintree/Drop-In
     - Braintree/Payments
     - Braintree/PayPal
     - Braintree/UI
     - Braintree/Venmo
-  - Braintree/API (3.4.0-rc3)
-  - Braintree/Drop-In (3.4.0-rc3):
+  - Braintree/API (3.4.0)
+  - Braintree/Drop-In (3.4.0):
     - Braintree/API
     - Braintree/Payments
     - Braintree/PayPal
     - Braintree/UI
     - Braintree/Venmo
-  - Braintree/Payments (3.4.0-rc3):
+  - Braintree/Payments (3.4.0):
     - Braintree/API
     - Braintree/PayPal
     - Braintree/Venmo
-  - Braintree/PayPal (3.4.0-rc3):
+  - Braintree/PayPal (3.4.0):
     - Braintree/API
     - Braintree/UI
-  - Braintree/UI (3.4.0-rc3):
+  - Braintree/UI (3.4.0):
     - Braintree/API
-  - Braintree/Venmo (3.4.0-rc3):
+  - Braintree/Venmo (3.4.0):
     - Braintree/API
 
 DEPENDENCIES:
+  - AFNetworkActivityLogger
   - AFNetworking (~> 2.4)
   - Braintree
 
 SPEC CHECKSUMS:
+  AFNetworkActivityLogger: d6a2d2755fada3a1fbf1f490ec0dd92224e092a4
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
-  Braintree: aa2f595a16918a449f6e41b525e5fd150fcafa4b
+  Braintree: 243a6cfdb697e58d4397a7ec687d63de325e5971
 
 COCOAPODS: 0.34.4

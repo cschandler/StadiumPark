@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Braintree/Braintree.h>
+#import "AFNetworkActivityLogger.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Only for HTTP debugging; comment for production
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+    
     // Required for braintree infrastructure
     [Braintree setReturnURLScheme:@"Flow-Enterprises--LLC.StadiumPark.payment"];
     

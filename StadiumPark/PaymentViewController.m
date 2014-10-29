@@ -84,16 +84,14 @@
       parameters:@{ @"nonce": nonce}
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              //store resulting token to user's settings
-             NSLog(@"response object: %@", operation.responseString);
+             //NSLog(@"response object: %@", operation.responseString);
              
              // Save the customer information
              // parse out the seperate customer information fields
              NSString *tokenString = @"";
 
-             NSDictionary *result = responseObject[@"result"];
-             NSDictionary *customer = result[@"customer"];
-             NSDictionary *creditCards = customer[@"creditCards"];
-             tokenString = [NSString stringWithFormat:@"%@", creditCards[@"token"]];
+             tokenString = [NSString stringWithFormat:@"%@", responseObject[@"token"]];
+             NSLog(@"tokenStr: %@", tokenString);
             
              if ([tokenString  isEqual: @"(null)"]) {
                  tokenString = [NSString stringWithFormat:@"teststring12345"];
