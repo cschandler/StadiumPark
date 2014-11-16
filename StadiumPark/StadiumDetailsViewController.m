@@ -72,8 +72,6 @@
 - (void)setLogo {
     NSLog(@"logo: %@", [self.stadiumDetails[@"stadium"] objectForKey:@"logo"]);
     if ([[self.stadiumDetails[@"stadium"] objectForKey:@"logo"]  isEqual: [NSNull null]]) {
-        UIImage *placeholderImage = [UIImage imageNamed:@"background1" inBundle:nil compatibleWithTraitCollection:nil];
-        //self.stadiumLogoImageView.image = placeholderImage;
         self.stadiumLogoImageView.hidden = YES;
     } else {
         UIImage *logo = [UIImage imageWithData:[self.stadiumDetails[@"stadium"] objectForKey:@"logo"]];
