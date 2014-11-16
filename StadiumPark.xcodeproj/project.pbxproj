@@ -18,6 +18,7 @@
 		7BF0415519F9BD4B00624B5A /* StadiumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0415419F9BD4B00624B5A /* StadiumsViewController.m */; };
 		7BF0415819F9C24F00624B5A /* StadiumDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0415719F9C24E00624B5A /* StadiumDetailsViewController.m */; };
 		7BF0415B19F9E94A00624B5A /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0415A19F9E94900624B5A /* QRCodeViewController.m */; };
+		B9FB75CA1A0304EC006DEC51 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9FB75C91A0304EC006DEC51 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		7BF0415919F9E94900624B5A /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
 		7BF0415A19F9E94900624B5A /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
 		A4C580ECE89C6BAC4BA6BE95 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9FB75C91A0304EC006DEC51 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B9FB75CB1A031B60006DEC51 /* StadiumPark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StadiumPark.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71DBB24A81E905930A59CD9C /* libPods.a in Frameworks */,
+				B9FB75CA1A0304EC006DEC51 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,7 @@
 		47940F4E232C57BB8CA1D943 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9FB75C91A0304EC006DEC51 /* StoreKit.framework */,
 				A4C580ECE89C6BAC4BA6BE95 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -114,6 +119,7 @@
 		7BF0411D19F9A22D00624B5A /* StadiumPark */ = {
 			isa = PBXGroup;
 			children = (
+				B9FB75CB1A031B60006DEC51 /* StadiumPark.entitlements */,
 				7BF0412219F9A22D00624B5A /* AppDelegate.h */,
 				7BF0412319F9A22D00624B5A /* AppDelegate.m */,
 				7BF0414419F9A4E500624B5A /* PaymentViewController.h */,
@@ -209,6 +215,15 @@
 				TargetAttributes = {
 					7BF0411A19F9A22D00624B5A = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 8XVQG9EJ22;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.OMC = {
+								enabled = 1;
+							};
+						};
 					};
 					7BF0413319F9A22D00624B5A = {
 						CreatedOnToolsVersion = 6.1;
@@ -357,7 +372,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sreenath Pillai (8XVQG9EJ22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sreenath Pillai (8XVQG9EJ22)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -377,6 +393,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "24e15dc2-208e-4410-b1c0-0887b9f67acc";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -399,7 +416,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sreenath Pillai (8XVQG9EJ22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sreenath Pillai (8XVQG9EJ22)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -412,6 +430,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "24e15dc2-208e-4410-b1c0-0887b9f67acc";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -424,10 +443,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = StadiumPark/StadiumPark.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sreenath Pillai (8XVQG9EJ22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sreenath Pillai (8XVQG9EJ22)";
 				INFOPLIST_FILE = StadiumPark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "24e15dc2-208e-4410-b1c0-0887b9f67acc";
 			};
 			name = Debug;
 		};
@@ -437,10 +460,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = StadiumPark/StadiumPark.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sreenath Pillai (8XVQG9EJ22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sreenath Pillai (8XVQG9EJ22)";
 				INFOPLIST_FILE = StadiumPark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "24e15dc2-208e-4410-b1c0-0887b9f67acc";
 			};
 			name = Release;
 		};
@@ -459,6 +486,7 @@
 				INFOPLIST_FILE = StadiumParkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "24e15dc2-208e-4410-b1c0-0887b9f67acc";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StadiumPark.app/StadiumPark";
 			};
 			name = Debug;
@@ -474,6 +502,7 @@
 				INFOPLIST_FILE = StadiumParkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "24e15dc2-208e-4410-b1c0-0887b9f67acc";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StadiumPark.app/StadiumPark";
 			};
 			name = Release;

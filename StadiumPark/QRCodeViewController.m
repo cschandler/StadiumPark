@@ -28,7 +28,7 @@
     UIImage *image = [UIImage imageWithData:imageData];
     CGFloat width = 200;//self.view.bounds.size.width;
     CGFloat positionX = (self.view.bounds.size.width - width) / 2;
-    CGFloat positionY = self.navigationController.navigationBar.frame.size.height + 16.0;
+    CGFloat positionY = (self.view.bounds.size.height - width) / 2;//self.navigationController.navigationBar.frame.size.height + 16.0;
     UIImageView *imageView = [[UIImageView alloc]
                 initWithFrame:CGRectMake(positionX, positionY, width, width)];
     imageView.image = image;
