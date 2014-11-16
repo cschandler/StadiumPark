@@ -43,6 +43,7 @@
     
     // setup view
     self.stadiumNameLabel.text = self.stadiumName;
+    //[self.stadiumNameLabel sizeToFit];
 }
 
 #pragma mark - IBAction methods
@@ -61,9 +62,9 @@
 
 #pragma mark - Private methods
 - (void)setPriceInfo {
-    self.priceInfoTextView.text = [NSString stringWithFormat:@"%@\n$%@", self.priceInfoTextView.text,
+    self.priceInfoTextView.text = [NSString stringWithFormat:@"%@\n$%@\n+ $0.99 convenience fee", self.priceInfoTextView.text,
                                    [self.stadiumDetails[@"stadium"] objectForKey:@"amount"]];
-    [self.priceInfoTextView setFont:[UIFont fontWithName:@"Apple SD Gothic Neo" size:34]];
+    [self.priceInfoTextView setFont:[UIFont fontWithName:@"Apple SD Gothic Neo" size:24]];
     [self.priceInfoTextView setTextColor:[UIColor whiteColor]];
     [self.priceInfoTextView setTextAlignment:NSTextAlignmentCenter];
     [self.view setNeedsDisplay];
