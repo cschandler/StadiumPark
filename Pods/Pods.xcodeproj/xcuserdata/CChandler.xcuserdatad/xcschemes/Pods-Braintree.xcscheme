@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B908DB5811AF97751EEF5782"
+               BlueprintIdentifier = "FFD111B6D25C71920870C08E"
                BuildableName = "libPods-Braintree.a"
                BlueprintName = "Pods-Braintree"
                ReferencedContainer = "container:Pods.xcodeproj">

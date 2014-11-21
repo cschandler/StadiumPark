@@ -14,7 +14,6 @@
 @interface PaymentViewController ()
 
 @property NSString *clientToken;
-//@property Braintree *braintree;
 @property NSString *nonce;
 
 @end
@@ -63,7 +62,10 @@
 }
 
 - (void)userDidCancelPayment {
+    // Dismisses the Braintree drop-in payment view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+    // Dismisses back to SignUpViewController
+    [self.self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)dropInViewController:(__unused BTDropInViewController *)viewController didSucceedWithPaymentMethod:(BTPaymentMethod *)paymentMethod {
@@ -75,6 +77,7 @@
 
 - (void)dropInViewControllerDidCancel:(__unused BTDropInViewController *)viewController {
     [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"inside dropInViewControllerDidCancel");
 }
 
 - (void)createCustomer:(NSString *)nonce {

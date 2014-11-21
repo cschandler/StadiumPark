@@ -31,7 +31,7 @@
     
     // success will be changed later to more specific info when we get token working
     Boolean customerExists = [token boolValue];
-    NSString *viewControllerId  = (customerExists)? @"StadiumNavigationController" : @"PaymentViewController";
+    NSString *viewControllerId  = (customerExists)? @"StadiumNavigationController" : @"SignUpViewController";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *initialViewController = [storyboard instantiateViewControllerWithIdentifier:viewControllerId];
     self.window.rootViewController = initialViewController;
