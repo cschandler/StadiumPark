@@ -77,7 +77,6 @@
 
 - (void)dropInViewControllerDidCancel:(__unused BTDropInViewController *)viewController {
     [self dismissViewControllerAnimated:YES completion:nil];
-    NSLog(@"inside dropInViewControllerDidCancel");
 }
 
 - (void)createCustomer:(NSString *)nonce {

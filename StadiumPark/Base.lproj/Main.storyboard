@@ -74,7 +74,6 @@
                                         </state>
                                         <connections>
                                             <action selector="continueTapped:" destination="nqv-mO-Pkt" eventType="touchUpInside" id="Uv9-nF-PYc"/>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueToPaymentView" id="8mC-HF-II7"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l2t-y2-DfT">
@@ -138,6 +137,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="l2t-y2-DfT" id="dWF-ay-7U8"/>
                         <outlet property="nameTextField" destination="R1E-j6-OIg" id="eTk-xO-wRs"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="segueToPaymentView" id="7Ks-1U-FjA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDA-vF-wy1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,6 +218,16 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.49999999999999961" contentMode="center" fixedFrame="YES" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="VAJ-Mr-eTY">
                                 <rect key="frame" x="0.0" y="0.0" width="1296" height="1040"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJz-Ec-ALh">
+                                <rect key="frame" x="16" y="72" width="568" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cZ1-zW-QTp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6g-2U-Jmb">
                                 <rect key="frame" x="16" y="219" width="568" height="162"/>
                                 <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
@@ -230,8 +240,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MJz-Ec-ALh" firstAttribute="trailing" secondItem="MKx-ae-BAL" secondAttribute="trailingMargin" id="9RK-Mt-lNE"/>
+                            <constraint firstItem="MJz-Ec-ALh" firstAttribute="top" secondItem="bOb-f9-LtL" secondAttribute="bottom" constant="8" id="dNa-tp-zL3"/>
                             <constraint firstItem="z6g-2U-Jmb" firstAttribute="centerY" secondItem="MKx-ae-BAL" secondAttribute="centerY" id="dwH-j8-ZOi"/>
                             <constraint firstItem="z6g-2U-Jmb" firstAttribute="trailing" secondItem="MKx-ae-BAL" secondAttribute="trailingMargin" id="enz-Vw-I03"/>
+                            <constraint firstItem="MJz-Ec-ALh" firstAttribute="leading" secondItem="MKx-ae-BAL" secondAttribute="leadingMargin" id="fkE-XY-gvd"/>
                             <constraint firstItem="z6g-2U-Jmb" firstAttribute="leading" secondItem="MKx-ae-BAL" secondAttribute="leadingMargin" id="rYe-2m-vbG"/>
                         </constraints>
                     </view>

@@ -7,8 +7,11 @@
 //
 
 #import "SignUpViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface SignUpViewController ()
+
+-(void)displayAlert:(NSString *)alertMessage;
 
 @end
 
@@ -26,7 +29,41 @@
 
 - (IBAction)continueTapped:(UIButton *)sender {
     // AFNetworking call
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    [manager POST:@"http://54.69.129.75/braintree_server/laravel/public/index.php/addUser"
+       parameters:@{ @"name": self.nameTextField.text, @"email": self.emailTextField.text}
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              
+              NSLog(@"response: %@", operation.responseString);
+              NSDictionary *response = responseObject[0];
+              NSString *responseString = response[@"result"];
+              
+              if ([responseString  isEqual: @"success"]) {
+                  // segue
+                  [self performSegueWithIdentifier:@"segueToPaymentView" sender:self];
+                  
+              } else if ([responseString  isEqual: @"application failure"]) {
+                  // display alert containing failure
+                  [self displayAlert:@"Application Failure"];
+                  
+              }
+              
+          }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              // Handle failure communicating with your server
+              NSLog(@"%@\n\n%@",error.description, error.debugDescription);
+          }];
+}
+
+- (void)displayAlert:(NSString *)alertMessage {
     
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                           message:alertMessage
+                                                          delegate:self
+                                                 cancelButtonTitle:@"OK"
+                                                 otherButtonTitles:nil];
+    [alert show];
 }
 
 /*
