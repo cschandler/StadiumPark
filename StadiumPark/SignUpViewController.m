@@ -40,6 +40,9 @@
               NSString *responseString = response[@"result"];
               
               if ([responseString  isEqual: @"success"]) {
+                  // set email in local settings
+                  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                  [defaults setObject:self.emailTextField.text forKey:@"email"];
                   // segue
                   [self performSegueWithIdentifier:@"segueToPaymentView" sender:self];
                   

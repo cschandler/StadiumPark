@@ -10,11 +10,14 @@
 #import <Braintree/Braintree.h>
 #import <AFNetworking/AFNetworking.h>
 #import "StadiumsViewController.h"
+#import "AppDelegate.h"
 
 @interface PaymentViewController ()
 
 @property NSString *clientToken;
 @property NSString *nonce;
+@property (nonatomic, strong) StadiumsViewController *destVC;
+@property AppDelegate *appDelegate;
 
 @end
 
@@ -22,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
@@ -72,7 +77,13 @@
     self.nonce = paymentMethod.nonce;
     [self createCustomer:self.nonce]; // Send payment method nonce to your server
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self performSegueWithIdentifier:@"segueToStadiums" sender:self];
+    //if ios8
+    //[self performSegueWithIdentifier:@"segueToStadiums" sender:self];
+    //if ios7
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *initialViewController = [storyboard instantiateViewControllerWithIdentifier:@"StadiumNavigationController"];
+    _appDelegate.window.rootViewController = initialViewController;
+    [_appDelegate.window makeKeyAndVisible];
 }
 
 - (void)dropInViewControllerDidCancel:(__unused BTDropInViewController *)viewController {
