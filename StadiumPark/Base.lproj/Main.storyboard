@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TO-s9-gsC">
-                                <rect key="frame" x="16" y="150" width="568" height="192"/>
+                                <rect key="frame" x="16" y="80" width="568" height="192"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5j-lA-vw8">
                                         <rect key="frame" x="33" y="8" width="92" height="21"/>
@@ -183,7 +183,6 @@
                     <connections>
                         <outlet property="paymentButton" destination="fwE-iB-CwF" id="K1h-wY-dCt"/>
                         <segue destination="FI4-SA-L7v" kind="modal" identifier="segueToStadiums" id="6lx-qP-TM8"/>
-                        <segue destination="AqN-1L-RMf" kind="presentation" identifier="segueToStadiums2" id="gGs-LY-PFz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -205,7 +204,7 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.49999999999999961" contentMode="center" fixedFrame="YES" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="VAJ-Mr-eTY">
                                 <rect key="frame" x="0.0" y="0.0" width="1296" height="1040"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose your location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJz-Ec-ALh">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="MJz-Ec-ALh">
                                 <rect key="frame" x="16" y="72" width="568" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -224,6 +223,15 @@
                                     <outlet property="delegate" destination="AqN-1L-RMf" id="Q7E-Du-6SX"/>
                                 </connections>
                             </pickerView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezk-3Q-qMe">
+                                <rect key="frame" x="287" y="389" width="40" height="30"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetTapped:" destination="AqN-1L-RMf" eventType="touchUpInside" id="bek-LQ-Co7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -235,15 +243,22 @@
                             <constraint firstItem="z6g-2U-Jmb" firstAttribute="leading" secondItem="MKx-ae-BAL" secondAttribute="leadingMargin" id="rYe-2m-vbG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Location" id="1LR-op-9n0"/>
+                    <navigationItem key="navigationItem" title="Choose Location" id="1LR-op-9n0">
+                        <barButtonItem key="rightBarButtonItem" title="Edit Payment Info" id="jha-Xx-2JR">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="e8b-Kd-S1O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="reset" destination="ezk-3Q-qMe" id="UvK-Zz-LuX"/>
                         <outlet property="stadiumsPicker" destination="z6g-2U-Jmb" id="6v0-9S-BL6"/>
                         <segue destination="JfM-mj-Ngv" kind="show" identifier="segueToStadiumDetails" id="qji-Id-ViS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zh-hZ-eB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="844"/>
+            <point key="canvasLocation" x="935" y="852"/>
         </scene>
         <!--Stadium Details View Controller-->
         <scene sceneID="A0B-LC-Exn">
@@ -264,7 +279,7 @@
                                 <rect key="frame" x="10" y="10" width="1296" height="1500"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stadium Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="YpD-we-2sB">
-                                <rect key="frame" x="16" y="39" width="568" height="40"/>
+                                <rect key="frame" x="16" y="83" width="568" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Wb6-I7-8IV"/>
                                 </constraints>
@@ -273,7 +288,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" editable="NO" text="Parking Price" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEY-rc-5rk">
-                                <rect key="frame" x="0.0" y="178" width="600" height="103"/>
+                                <rect key="frame" x="0.0" y="222" width="600" height="103"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.14044948369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="145" id="7Su-Gb-Ghe"/>
@@ -294,7 +309,7 @@
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8Y-KG-Mc6">
-                                <rect key="frame" x="16" y="381" width="568" height="48"/>
+                                <rect key="frame" x="16" y="425" width="568" height="48"/>
                                 <color key="backgroundColor" red="0.83453677398989901" green="0.83453677398989901" blue="0.83453677398989901" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="IK5-Ga-uog"/>
@@ -308,7 +323,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1. SHOW QR CODE TO ATTENDANT" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5CS-vM-jWT">
-                                <rect key="frame" x="16" y="290" width="568" height="30"/>
+                                <rect key="frame" x="16" y="334" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RMi-RQ-6mM"/>
                                 </constraints>
@@ -316,7 +331,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2. SCAN AND ENTER" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PmO-Kb-yMu">
-                                <rect key="frame" x="16" y="321" width="568" height="30"/>
+                                <rect key="frame" x="16" y="365" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Gs9-i6-r6s"/>
                                 </constraints>
@@ -324,7 +339,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3. ENOY THE GAME!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bhF-PW-39c">
-                                <rect key="frame" x="16" y="353" width="568" height="30"/>
+                                <rect key="frame" x="16" y="397" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2L6-Di-8rI"/>
                                 </constraints>
@@ -430,9 +445,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background2" width="1296" height="1040"/>
+        <image name="background2" width="3890" height="3122"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gGs-LY-PFz"/>
+        <segue reference="e8b-Kd-S1O"/>
     </inferredMetricsTieBreakers>
 </document>

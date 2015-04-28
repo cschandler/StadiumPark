@@ -30,7 +30,7 @@
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    [manager GET:@"http://54.69.129.75/braintree_server/laravel/public/index.php/getToken"
+    [manager GET:@"http://54.149.200.91/braintree_server/laravel/public/index.php/getToken"
        parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               //store resulting token to user's settings
@@ -76,14 +76,6 @@
 - (void)dropInViewController:(__unused BTDropInViewController *)viewController didSucceedWithPaymentMethod:(BTPaymentMethod *)paymentMethod {
     self.nonce = paymentMethod.nonce;
     [self createCustomer:self.nonce]; // Send payment method nonce to your server
-    [self dismissViewControllerAnimated:YES completion:nil];
-    //if ios8
-    //[self performSegueWithIdentifier:@"segueToStadiums" sender:self];
-    //if ios7
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    UIViewController *initialViewController = [storyboard instantiateViewControllerWithIdentifier:@"StadiumNavigationController"];
-    _appDelegate.window.rootViewController = initialViewController;
-    [_appDelegate.window makeKeyAndVisible];
 }
 
 - (void)dropInViewControllerDidCancel:(__unused BTDropInViewController *)viewController {
@@ -93,7 +85,7 @@
 - (void)createCustomer:(NSString *)nonce {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    [manager POST:@"http://54.69.129.75/braintree_server/laravel/public/index.php/createCustomer"
+    [manager POST:@"http://54.149.200.91/braintree_server/laravel/public/index.php/createCustomer"
       parameters:@{ @"nonce": nonce}
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              //store resulting token to user's settings
@@ -113,11 +105,26 @@
              NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
              [defaults setObject:tokenString forKey:@"token"];
              NSLog(@"tokenString upon entering user defaults: %@", tokenString);
+             //continue
+             [self dismissViewControllerAnimated:YES completion:nil];
+             //if ios8
+             //[self performSegueWithIdentifier:@"segueToStadiums" sender:self];
+             //if ios7
+             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+             UIViewController *initialViewController = [storyboard instantiateViewControllerWithIdentifier:@"StadiumNavigationController"];
+             _appDelegate.window.rootViewController = initialViewController;
+             [_appDelegate.window makeKeyAndVisible];
              
          }
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              // Handle failure communicating with your server
              NSLog(@"%@\n\n%@",error.description, error.debugDescription);
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                             message:@"There was an error creating your payment profile. Please try again."
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+             [alert show];
          }];
 }
 

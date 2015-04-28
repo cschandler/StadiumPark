@@ -27,7 +27,7 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    [manager POST:@"http://54.69.129.75/braintree_server/laravel/public/index.php/stadium_details"
+    [manager POST:@"http://54.149.200.91/braintree_server/laravel/public/index.php/stadium_details"
        parameters:@{ @"id":self.stadiumId, @"token":[defaults objectForKey:@"token"], @"email":[defaults objectForKey:@"email"] }
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"stadium_details response: %@", responseObject[0]);
@@ -62,8 +62,14 @@
 
 #pragma mark - Private methods
 - (void)setPriceInfo {
-    self.priceInfoTextView.text = [NSString stringWithFormat:@"%@\n$%@\n+ $%@ convenience fee", self.priceInfoTextView.text,
-                                   [self.stadiumDetails[@"stadium"] objectForKey:@"amount"], [self.stadiumDetails[@"stadium"] objectForKey:@"fee"]];
+    if([[self.stadiumDetails[@"stadium"] objectForKey:@"fee"] isEqual: @"0.00"]){
+        self.priceInfoTextView.text = [NSString stringWithFormat:@"%@\n$%@\n", self.priceInfoTextView.text,
+                                       [self.stadiumDetails[@"stadium"] objectForKey:@"amount"]];
+    }
+    else {
+        self.priceInfoTextView.text = [NSString stringWithFormat:@"%@\n$%@\n+ $%@ convenience fee", self.priceInfoTextView.text,
+                                       [self.stadiumDetails[@"stadium"] objectForKey:@"amount"], [self.stadiumDetails[@"stadium"] objectForKey:@"fee"]];
+    }
     [self.priceInfoTextView setFont:[UIFont fontWithName:@"Apple SD Gothic Neo" size:24]];
     [self.priceInfoTextView setTextColor:[UIColor whiteColor]];
     
@@ -95,9 +101,6 @@
     } else {
         self.stadiumLogoImageView.hidden = NO;
         
-        //prepare logo
-        //OLDWAY:
-        //UIImage *logo = [UIImage imageWithData:[self.stadiumDetails[@"stadium"] objectForKey:@"logo"]];
         //NEW:
         NSString *imgPrefix = @"data:image/png;base64,";
         NSString *logoString = [imgPrefix stringByAppendingString:[self.stadiumDetails[@"stadium"] objectForKey:@"logo"]];
@@ -113,10 +116,7 @@
         UIImage *resizedLogo = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        self.stadiumLogoImageView.frame = CGRectMake((self.view.bounds.size.width - 200) / 2, 79, 200, 100);
-        self.stadiumLogoImageView.center = self.view.center;
         self.stadiumLogoImageView.image = resizedLogo;
-        //self.stadiumLogoImageView.frame = CGRectMake((self.view.bounds.size.width - 200) / 2, 79, 200, 100);
     }
 }
 

@@ -28,10 +28,14 @@
     // Determine initial ViewController based on whether customer information preexists
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [defaults objectForKey:@"token"];
-    
+    NSString *token2 = [defaults objectForKey:@"token2"];
+    NSLog(@"tokenStr: %@", token);
+    NSLog(@"tokenStr2: %@", token2);
     // success will be changed later to more specific info when we get token working
-    Boolean customerExists = [token boolValue];
+    Boolean customerExists = !(token == (id)[NSNull null] || token.length == 0);//[token boolValue];
+    NSLog(@"bool: %@", customerExists? @"true":@"false");
     NSString *viewControllerId  = (customerExists)? @"StadiumNavigationController" : @"SignUpViewController";
+    NSLog(@"vcid: %@", viewControllerId);
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *initialViewController = [storyboard instantiateViewControllerWithIdentifier:viewControllerId];
     self.window.rootViewController = initialViewController;

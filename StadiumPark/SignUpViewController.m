@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.nameTextField.delegate = self;
+    self.emailTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,11 +29,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+// this method gets called by the system automatically when the user taps the keyboard's "Done" button
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
+{
+    [theTextField resignFirstResponder];
+    return YES;
+}
+
 - (IBAction)continueTapped:(UIButton *)sender {
     // AFNetworking call
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    [manager POST:@"http://54.69.129.75/braintree_server/laravel/public/index.php/addUser"
+    [manager POST:@"http://54.149.200.91/braintree_server/laravel/public/index.php/addUser"
        parameters:@{ @"name": self.nameTextField.text, @"email": self.emailTextField.text}
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               

@@ -14,6 +14,8 @@
 
 @property NSArray *stadiums;
 @property NSDictionary *currentStadium;
+@property(weak,nonatomic) IBOutlet UIButton *reset;
+- (IBAction)resetTapped:(UIButton *)sender;
 
 @end
 
@@ -25,7 +27,7 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    [manager GET:@"http://54.69.129.75/braintree_server/laravel/public/index.php/stadiums"
+    [manager GET:@"http://54.149.200.91/braintree_server/laravel/public/index.php/stadiums"
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"stadium response: %@", operation.responseString);
@@ -45,6 +47,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)resetTapped:(UIButton *)sender {
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 }
 
 #pragma mark - UIPickView datasource and delegate method implementation
@@ -70,9 +77,11 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    StadiumDetailsViewController *controller = segue.destinationViewController;
-    controller.stadiumName = [self.currentStadium objectForKey:@"name"];
-    controller.stadiumId = [self.currentStadium objectForKey:@"stadium_id"];
+    if ([[segue identifier] isEqualToString:@"segueToStadiumDetails"]){
+        StadiumDetailsViewController *controller = segue.destinationViewController;
+        controller.stadiumName = [self.currentStadium objectForKey:@"name"];
+        controller.stadiumId = [self.currentStadium objectForKey:@"stadium_id"];
+    }
 }
 
 #pragma mark - Gesture recogniztion methods
